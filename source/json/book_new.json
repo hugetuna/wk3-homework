@@ -1,18 +1,18 @@
 [
     {
-        "bookpic": "C:/Users/user/Desktop/academical/app/wk3-homework/source/img/newest_1.png",
+        "bookpic": 0,
         "rank": 4,
         "bookName": "Yves Saint Laurent",
         "bookAuthor": "Suzy Menkes"
     },
     {
-        "bookpic": "../../img/newest_2.png",
+        "bookpic": 1,
         "rank": 3,
         "bookName": "The Book of Signs",
         "bookAuthor": "Rudolf Koch "
     },
     {
-        "bookpic": "../../img/newest_3.png",
+        "bookpic": 2,
         "rank": 3,
         "bookName": "Stitched Up",
         "bookAuthor": "Tansy E. Hoskins"

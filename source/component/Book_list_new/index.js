@@ -8,11 +8,14 @@ import Book_new_data from "../../json/book_new.json";
 //新書列表
 const Book_list_new = () => {
     return (
-        <View>
+        <View style={style.box}>
+            <Text style={style.Heading1}>Newest</Text>
             <FlatList
+                horizontal={true}
+                showsHorizontalScrollIndicator={false}
                 data={Book_new_data}
                 renderItem={({ item }) => <Book_block_new book={item} />}
-                keyExtractor={item => item.bookpic}
+                keyExtractor={item => item.bookName}
             />
         </View>
     );
