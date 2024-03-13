@@ -5,13 +5,13 @@ import { PaperProvider } from 'react-native-paper';
 import { IconButton, Appbar } from 'react-native-paper';
 
 //普通宣告
-import { StyleSheet, Text, View, StatusBar, ScrollView } from 'react-native';
+import { StyleSheet, Text, View, StatusBar, ScrollView, Button } from 'react-native';
 //自己的物件
 import Book_list_new from '../component/Book_list_new';
 import Book_list_popular from '../component/Book_list_popular'
 import BottomNavigationBar from '../component/BottomNavigationBar';
 
-const Main_screen = () => {
+const MainScreen = ({ navigation }) => {
     return (
         <PaperProvider>
             <View style={styles.container}>
@@ -23,7 +23,13 @@ const Main_screen = () => {
                 <ScrollView contentContainerStyle={styles.content}>
                     <Book_list_popular />
                     <Book_list_popular />
-                    <Book_list_new />
+                    <Book_list_new navigation={navigation} />
+                    <Button
+                        title="Go to Details... again"
+                        onPress={() => navigation.push('test')}
+                    />
+                    <Button title="Go to Home" onPress={() => navigation.navigate('main')} />
+                    <Button title="Go back" onPress={() => navigation.goBack()} />
                 </ScrollView>
                 <BottomNavigationBar />
             </View>
@@ -50,4 +56,4 @@ const styles = StyleSheet.create({
     },
 });
 
-export default Main_screen;
+export default MainScreen;

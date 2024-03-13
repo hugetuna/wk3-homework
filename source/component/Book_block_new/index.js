@@ -1,4 +1,4 @@
-import { Text, View, Image } from 'react-native';
+import { Text, View, Image, Pressable } from 'react-native';
 import Starbar from '../Starbar';
 import style from './style';
 
@@ -11,13 +11,16 @@ new_picArr = [newest_1, newest_2, newest_3]
 //單個新書組件
 const Book_block_new = (porps) => {
     let book = porps.book;
+    let navigation = porps.navigation;
     return (
-        <View style={style.box}>
-            <Image style={style.pic} source={new_picArr[book.bookpic]} />
-            <Starbar rank={book.rank} />
-            <Text style={style.heading2}>{book.bookName}</Text>
-            <Text style={style.body2}>{book.bookAuthor}</Text>
-        </View>
+        <Pressable onPress={() => navigation.push('test')}>
+            <View style={style.box}>
+                <Image style={style.pic} source={new_picArr[book.bookpic]} />
+                <Starbar rank={book.rank} />
+                <Text style={style.heading2}>{book.bookName}</Text>
+                <Text style={style.body2}>{book.bookAuthor}</Text>
+            </View>
+        </Pressable>
     );
 }
 

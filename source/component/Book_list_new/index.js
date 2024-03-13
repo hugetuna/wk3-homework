@@ -6,7 +6,7 @@ import Book_block_new from '../Book_block_new';
 import Book_new_data from "../../json/book_new.json";
 
 //新書列表
-const Book_list_new = () => {
+const Book_list_new = (props) => {
     return (
         <View style={style.box}>
             <Text style={style.Heading1}>Newest</Text>
@@ -14,7 +14,7 @@ const Book_list_new = () => {
                 horizontal={true}
                 showsHorizontalScrollIndicator={false}
                 data={Book_new_data}
-                renderItem={({ item }) => <Book_block_new book={item} />}
+                renderItem={({ item }) => <Book_block_new book={item} navigation={props.navigation} />}
                 keyExtractor={item => item.bookName}
             />
         </View>

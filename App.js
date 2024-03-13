@@ -1,35 +1,34 @@
-//普通宣告
-import { StyleSheet, Text, View, StatusBar, ScrollView } from 'react-native';
-
+import { StyleSheet, Text, View, Button } from 'react-native';
 //載入頁面
-import Main_screen from './source/screen/Main_screen';
+import MainScreen from './source/screen/MainScreen';
 //navigation宣告
 import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+
+const Stack = createNativeStackNavigator();
+//test用頁面
+function DetailsScreen({ navigation }) {
+  return (
+    <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+      <Text>Details Screen</Text>
+      <Button
+        title="Go to Details... again"
+        onPress={() => navigation.push('test')}
+      />
+      <Button title="Go to Home" onPress={() => navigation.navigate('main')} />
+      <Button title="Go back" onPress={() => navigation.goBack()} />
+    </View>
+  );
+}
 
 export default function App() {
   return (
     <NavigationContainer>
-      <Main_screen />
+      <Stack.Navigator initialRouteName="main">
+        <Stack.Screen name='main' component={MainScreen} />
+        <Stack.Screen name='test' component={DetailsScreen} />
+      </Stack.Navigator>
     </NavigationContainer>
 
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-  },
-  content: {
-    top: 56,
-    paddingBottom: 150
-  },
-  fix: {
-    justifyContent: "space-between",
-    position: 'absolute',
-    left: 0,
-    top: 0,
-    width: '100%',
-    zIndex: 999,
-  },
-});
