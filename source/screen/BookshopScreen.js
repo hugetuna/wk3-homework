@@ -17,11 +17,16 @@ import React, { useState } from 'react';
 
 const BookshopScreen = ({ navigation, route }) => {
     const [iconpic, setIconpic] = useState('bookmark-outline');
+    const [iconColor, setIconColor] = useState('black');
     const handlePress = () => {
-        if (iconpic == 'bookmark-outline')
+        if (iconpic == 'bookmark-outline') {
             setIconpic('bookmark');
-        else
+            setIconColor('purple');
+        }
+        else {
             setIconpic('bookmark-outline');
+            setIconColor('black');
+        }
     };
     return (
         <PaperProvider>
@@ -29,7 +34,7 @@ const BookshopScreen = ({ navigation, route }) => {
                 <StatusBar />
                 <Appbar style={styles.fix} mode="center-aligned">
                     <IconButton icon="less-than" size={40} onPress={() => navigation.navigate('main')} />
-                    <IconButton icon={iconpic} size={40} onPress={handlePress} />
+                    <IconButton icon={iconpic} iconColor={iconColor} size={40} onPress={handlePress} />
                 </Appbar>
                 <ScrollView>
                     <Buy_content good={Book_new_data[route.params.id]} />
