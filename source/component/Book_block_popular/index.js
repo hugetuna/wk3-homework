@@ -13,7 +13,7 @@ const Book_block_popular = (props) => {
     return (
         <View style={style.box}>
             <Image style={style.picture}
-                source={popular_picArr[book.bookpic]} />
+                source={popular_picArr[book.bookid]} />
             <Text style={style.heading2}>{book.bookName}</Text>
             <Text style={style.body2}>{book.bookAuthor}</Text>
         </View>

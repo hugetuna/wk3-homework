@@ -1,18 +1,18 @@
 [
     {
-        "bookpic": 0,
+        "bookid": 0,
         "rank": 4,
         "bookName": "Yves Saint Laurent",
         "bookAuthor": "Suzy Menkes"
     },
     {
-        "bookpic": 1,
+        "bookid": 1,
         "rank": 3,
         "bookName": "The Book of Signs",
         "bookAuthor": "Rudolf Koch "
     },
     {
-        "bookpic": 2,
+        "bookid": 2,
         "rank": 3,
         "bookName": "Stitched Up",
         "bookAuthor": "Tansy E. Hoskins"

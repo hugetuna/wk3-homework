@@ -13,9 +13,11 @@ const Book_block_new = (porps) => {
     let book = porps.book;
     let navigation = porps.navigation;
     return (
-        <Pressable onPress={() => navigation.push('test')}>
+        <Pressable onPress={() => navigation.navigate('buy', {
+            id: book.bookid
+        })}>
             <View style={style.box}>
-                <Image style={style.pic} source={new_picArr[book.bookpic]} />
+                <Image style={style.pic} source={new_picArr[book.bookid]} />
                 <Starbar rank={book.rank} />
                 <Text style={style.heading2}>{book.bookName}</Text>
                 <Text style={style.body2}>{book.bookAuthor}</Text>

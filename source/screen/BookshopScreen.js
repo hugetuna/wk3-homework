@@ -7,23 +7,32 @@ import { IconButton, Appbar } from 'react-native-paper';
 //普通宣告
 import { StyleSheet, Text, View, StatusBar, ScrollView, Button } from 'react-native';
 //自己的物件
-import Book_list_new from '../component/Book_list_new';
-import Book_list_popular from '../component/Book_list_popular'
+import Buy_content from '../component/Buy_content';
 import BottomNavigationBar from '../component/BottomNavigationBar';
+//json檔
+import Book_new_data from "../json/book_new.json";
 
-const MainScreen = ({ navigation }) => {
+//書籤變動設定
+import React, { useState } from 'react';
+
+const BookshopScreen = ({ navigation, route }) => {
+    const [iconpic, setIconpic] = useState('bookmark-outline');
+    const handlePress = () => {
+        if (iconpic == 'bookmark-outline')
+            setIconpic('bookmark');
+        else
+            setIconpic('bookmark-outline');
+    };
     return (
         <PaperProvider>
             <View style={styles.container}>
                 <StatusBar />
                 <Appbar style={styles.fix} mode="center-aligned">
-                    <IconButton icon="menu" size={40} />
-                    <IconButton icon="magnify" size={40} />
+                    <IconButton icon="less-than" size={40} onPress={() => navigation.navigate('main')} />
+                    <IconButton icon={iconpic} size={40} onPress={handlePress} />
                 </Appbar>
-                <ScrollView contentContainerStyle={styles.content}>
-                    <Book_list_popular />
-                    <Book_list_popular />
-                    <Book_list_new navigation={navigation} />
+                <ScrollView>
+                    <Buy_content good={Book_new_data[route.params.id]} />
                 </ScrollView>
                 <BottomNavigationBar />
             </View>
@@ -36,10 +45,6 @@ const styles = StyleSheet.create({
         flex: 1,
         backgroundColor: '#fff',
     },
-    content: {
-        top: 56,
-        paddingBottom: 150
-    },
     fix: {
         justifyContent: "space-between",
         position: 'absolute',
@@ -50,4 +55,4 @@ const styles = StyleSheet.create({
     },
 });
 
-export default MainScreen;
+export default BookshopScreen;
