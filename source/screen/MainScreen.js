@@ -17,7 +17,7 @@ const MainScreen = ({ navigation }) => {
             <View style={styles.container}>
                 <StatusBar />
                 <Appbar style={styles.fix} mode="center-aligned">
-                    <IconButton icon="menu" size={40} />
+                    <IconButton icon="menu" size={40} onPress={navigation.openDrawer} />
                     <IconButton icon="magnify" size={40} />
                 </Appbar>
                 <ScrollView contentContainerStyle={styles.content}>
