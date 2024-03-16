@@ -7,6 +7,8 @@ import { TouchableOpacity, Text, View, Image } from 'react-native';
 //react-native-paper提供的物件
 import { IconButton } from 'react-native-paper';
 import style from './style';
+//引入自己的物件
+import CustomDrawerItemList from '../CustomDrawerItemList';
 
 const CustomDrawerContent = ({ navigation, state, descriptors }) => {
     return (
@@ -15,7 +17,7 @@ const CustomDrawerContent = ({ navigation, state, descriptors }) => {
                 <IconButton icon={"account-circle"} size={48} />
                 <Text style={style.Heading1}>Ethan</Text>
             </View>
-            <DrawerItemList navigation={navigation} state={state} descriptors={descriptors} />
+            <CustomDrawerItemList navigation={navigation} state={state} descriptors={descriptors} />
             <TouchableOpacity onPress={() => alert('Custom button pressed')}>
                 <View style={{ padding: 20, borderTopWidth: 1, borderTopColor: '#ccc' }}>
                     <Text>Custom Button</Text>

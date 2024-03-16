@@ -22,7 +22,6 @@ const MainScreen = ({ navigation }) => {
                 </Appbar>
                 <ScrollView contentContainerStyle={styles.content}>
                     <Book_list_popular />
-                    <Book_list_popular />
                     <Book_list_new navigation={navigation} />
                 </ScrollView>
                 <BottomNavigationBar />
